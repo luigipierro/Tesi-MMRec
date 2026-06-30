@@ -1,0 +1,104 @@
+Sat 20 Jun 2026 20:36:20 INFO ██Server: 	lrdn2233.leonardo.local
+Sat 20 Jun 2026 20:36:20 INFO ██Dir: 	/leonardo_work/IscrC_MMRecSys/luigi/green_mmrec/green_MMRec/src
+
+Sat 20 Jun 2026 20:36:20 INFO 
+gpu_id=0
+use_gpu=True
+seed=[883]
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=False
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=1000
+stopping_step=120
+train_batch_size=2048
+learner=adam
+learning_rate=0.001
+learning_rate_scheduler=[1.0, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[5, 10, 20, 50]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+hyper_parameters=['seed', 'n_ui_layers', 'reg_weight', 'fusion_mode', 'weighting', 'dropout']
+inter_file_name=movielens_1m.inter
+text_feature_file=all-MiniLM-L6-v2.npy
+vision_feature_file=vit_cls.npy
+user_graph_dict_file=user_graph_dict.npy
+feat_embed_dim=64
+n_ui_layers=[2]
+reg_weight=[0.1]
+fusion_mode=['mean', 'sum', 'prod', 'concat']
+weighting=['equal', 'alpha', 'normalized']
+dropout=[0.2, 0.5, 0.8]
+model=MMGCF
+dataset=movielens_1m
+valid_metric_bigger=True
+device=cuda
+
+
+Sat 20 Jun 2026 20:36:21 INFO movielens_1m
+The number of users: 6040
+Average actions of users: 156.07665562913908
+The number of items: 2980
+Average actions of items: 316.343288590604
+The number of inters: 942703
+The sparsity of the dataset: 94.76252833459264%
+Sat 20 Jun 2026 20:36:21 INFO 
+====Training====
+movielens_1m
+The number of users: 6040
+Average actions of users: 124.46937086092716
+The number of items: 2980
+Average actions of items: 252.28020134228188
+The number of inters: 751795
+The sparsity of the dataset: 95.82317547446553%
+Sat 20 Jun 2026 20:36:21 INFO 
+====Validation====
+movielens_1m
+The number of users: 6040
+Average actions of users: 15.163245033112583
+The number of items: 2886
+Average actions of items: 31.734580734580735
+The number of inters: 91586
+The sparsity of the dataset: 99.47459303419568%
+Sat 20 Jun 2026 20:36:21 INFO 
+====Testing====
+movielens_1m
+The number of users: 6040
+Average actions of users: 16.444039735099338
+The number of items: 2877
+Average actions of items: 34.522766770941956
+The number of inters: 99322
+The sparsity of the dataset: 99.42843101372613%
+Sat 20 Jun 2026 20:36:25 INFO 
+
+=================================
+
+
+Sat 20 Jun 2026 20:36:25 INFO =========1/36: Parameters:['seed', 'n_ui_layers', 'reg_weight', 'fusion_mode', 'weighting', 'dropout']=(883, 2, 0.1, 'mean', 'equal', 0.2)=======

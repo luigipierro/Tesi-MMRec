@@ -1,0 +1,28 @@
+# Common Features
+USER_ID_FIELD: userID
+ITEM_ID_FIELD: itemID
+#RATING_FIELD: rating
+TIME_FIELD: timestamp
+
+filter_out_cod_start_users: True
+
+inter_file_name: 'movielens_1m.inter'
+
+text_feature_file: 'all-MiniLM-L6-v2.npy'
+vision_feature_file: 'vit_cls.npy'
+
+# vision feature
+# vision_feature_file: 'vit_avg.npy'
+# - vision_feature_file: 'vit_cls.npy'
+# vision_feature_file: 'whisper.npy'
+# vision_feature_file: 'all-MiniLM-L12-v2.npy'
+# vision_feature_file: 'i3d.npy'
+
+# textual feature
+# text_feature_file: 'i3d.npy'
+# text_feature_file: 'whisper.npy'
+# - text_feature_file: 'all-mpnet-base-v2.npy'
+
+user_graph_dict_file: 'user_graph_dict.npy'
+
+field_separator: "\t"

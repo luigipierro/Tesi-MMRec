@@ -1,0 +1,6 @@
+embedding_size: 64
+n_layers: [1,2,3]
+#una run alla volta per ogni n_layers
+reg_weight: [1e-04, 1e-03, 1e-02, 1e-01]
+ 
+hyper_parameters: ["reg_weight", "n_layers"]

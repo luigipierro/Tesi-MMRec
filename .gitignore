@@ -1,0 +1,24 @@
+# Escludi i dataset (se presenti)
+data/
+*.zip
+*.tar.gz
+
+# Escludi i pesi dei modelli e i checkpoint ovunque siano
+*.pth
+*.pt
+*.pkl
+*.h5
+checkpoint/
+checkpoints/
+**/checkpoint/
+**/checkpoints/
+
+# Cache di Python
+__pycache__/
+*.py[cod]
+**/__pycache__/
+
+# File temporanei o di sistema
+.DS_Store
+.vscode/
+.idea/

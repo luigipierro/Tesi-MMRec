@@ -1,0 +1,396 @@
+Wed 29 Apr 2026 03:37:34 INFO ██Server: 	lrdn3222.leonardo.local
+Wed 29 Apr 2026 03:37:34 INFO ██Dir: 	/leonardo_work/IscrC_MMRecSys/luigi/green_mmrec/green_MMRec/src
+
+Wed 29 Apr 2026 03:37:34 INFO 
+gpu_id=0
+use_gpu=True
+seed=[883]
+data_path=../data/
+inter_splitting_label=x_label
+filter_out_cod_start_users=True
+is_multimodal_model=True
+checkpoint_dir=saved
+save_recommended_topk=False
+recommend_topk=recommend_topk/
+embedding_size=64
+weight_decay=0.0
+req_training=True
+epochs=1000
+stopping_step=120
+train_batch_size=2048
+learner=adam
+learning_rate=0.001
+learning_rate_scheduler=[0.96, 50]
+eval_step=1
+training_neg_sample_num=1
+use_neg_sampling=True
+use_full_sampling=False
+NEG_PREFIX=neg__
+USER_ID_FIELD=userID
+ITEM_ID_FIELD=itemID
+TIME_FIELD=timestamp
+field_separator=	
+metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+topk=[5, 10, 20, 50]
+valid_metric=Recall@20
+eval_batch_size=4096
+use_raw_features=False
+max_txt_len=32
+max_img_size=256
+vocab_size=30522
+type_vocab_size=2
+hidden_size=4
+pad_token_id=0
+max_position_embeddings=512
+layer_norm_eps=1e-12
+hidden_dropout_prob=0.1
+end2end=False
+hyper_parameters=['seed', 'reg_weight', 'n_layers', 'knn_k']
+inter_file_name=sports.inter
+vision_feature_file=image_feat.npy
+text_feature_file=text_feat.npy
+user_graph_dict_file=user_graph_dict.npy
+feat_embed_dim=64
+weight_size=[64, 64]
+lambda_coeff=0.9
+reg_weight=[0.1]
+cf_model=lightgcn
+mess_dropout=[0.1, 0.1]
+n_layers=[3]
+knn_k=[10]
+model=LATTICE
+dataset=sports
+valid_metric_bigger=True
+device=cuda
+
+
+Wed 29 Apr 2026 03:37:34 INFO sports
+The number of users: 35598
+Average actions of users: 8.324540704533963
+The number of items: 18357
+Average actions of items: 16.142997221768262
+The number of inters: 296337
+The sparsity of the dataset: 99.95465195454304%
+Wed 29 Apr 2026 03:37:34 INFO 
+====Training====
+sports
+The number of users: 35598
+Average actions of users: 6.13542895668296
+The number of items: 18352
+Average actions of items: 11.901100697471666
+The number of inters: 218409
+The sparsity of the dataset: 99.96656806366236%
+Wed 29 Apr 2026 03:37:34 INFO 
+====Validation====
+sports
+The number of users: 35598
+Average actions of users: 1.0646384628349908
+The number of items: 13342
+Average actions of items: 2.840578623894469
+The number of inters: 37899
+The sparsity of the dataset: 99.99202039826986%
+Wed 29 Apr 2026 03:37:34 INFO 
+====Testing====
+sports
+The number of users: 35598
+Average actions of users: 1.1244732850160122
+The number of items: 13738
+Average actions of items: 2.9137429028970736
+The number of inters: 40029
+The sparsity of the dataset: 99.99181486908563%
+Wed 29 Apr 2026 03:37:44 INFO 
+
+=================================
+
+
+Wed 29 Apr 2026 03:37:44 INFO =========1/1: Parameters:['seed', 'reg_weight', 'n_layers', 'knn_k']=(883, 0.1, 3, 10)=======
+Wed 29 Apr 2026 03:38:15 INFO LATTICE(
+  (user_embedding): Embedding(35598, 64)
+  (item_id_embedding): Embedding(18357, 64)
+  (image_embedding): Embedding(18357, 4096)
+  (text_embedding): Embedding(18357, 384)
+  (image_trs): Linear(in_features=4096, out_features=64, bias=True)
+  (text_trs): Linear(in_features=384, out_features=64, bias=True)
+  (softmax): Softmax(dim=0)
+)
+Trainable parameters: 85979330
+Wed 29 Apr 2026 03:38:53 INFO EPOCH=0	TRAIN_ENERGY=0.0016106468213649826
+Wed 29 Apr 2026 03:38:53 INFO epoch 0 training [time: 31.45s, train loss: 83.2620]
+Wed 29 Apr 2026 03:39:15 INFO EPOCH=0	VALID_ENERGY=0.0015336243657165943
+Wed 29 Apr 2026 03:39:36 INFO EPOCH=0	TEST_ENERGY=0.0015291258151189286
+Wed 29 Apr 2026 03:39:36 INFO epoch 0 evaluating [time: 21.98s, valid_score: 0.035500]
+Wed 29 Apr 2026 03:39:36 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0082	0.0100	0.0032	0.0147
+10	0.0094	0.0127	0.0025	0.0232
+20	0.0102	0.0159	0.0019	0.0355
+50	0.0109	0.0203	0.0012	0.0575
+
+Wed 29 Apr 2026 03:39:36 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0091	0.0110	0.0036	0.0161
+10	0.0103	0.0141	0.0029	0.0253
+20	0.0111	0.0171	0.0021	0.0370
+50	0.0118	0.0219	0.0014	0.0605
+
+Wed 29 Apr 2026 03:39:47 INFO ██ LATTICE--Best validation results updated!!!
+Wed 29 Apr 2026 03:40:00 INFO EPOCH=1	TRAIN_ENERGY=0.0007537245594177539
+Wed 29 Apr 2026 03:40:00 INFO epoch 1 training [time: 12.58s, train loss: 78.9077]
+Wed 29 Apr 2026 03:40:21 INFO EPOCH=1	VALID_ENERGY=0.0015246383667662919
+Wed 29 Apr 2026 03:40:43 INFO EPOCH=1	TEST_ENERGY=0.0015280251400828127
+Wed 29 Apr 2026 03:40:43 INFO epoch 1 evaluating [time: 21.53s, valid_score: 0.039000]
+Wed 29 Apr 2026 03:40:43 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0089	0.0108	0.0034	0.0159
+10	0.0101	0.0138	0.0027	0.0253
+20	0.0111	0.0173	0.0021	0.0390
+50	0.0119	0.0225	0.0014	0.0649
+
+Wed 29 Apr 2026 03:40:43 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0091	0.0112	0.0037	0.0165
+10	0.0104	0.0145	0.0030	0.0267
+20	0.0114	0.0183	0.0023	0.0412
+50	0.0123	0.0239	0.0016	0.0689
+
+Wed 29 Apr 2026 03:40:54 INFO ██ LATTICE--Best validation results updated!!!
+Wed 29 Apr 2026 03:41:06 INFO EPOCH=2	TRAIN_ENERGY=0.0007548018260945902
+Wed 29 Apr 2026 03:41:06 INFO epoch 2 training [time: 12.59s, train loss: 75.0806]
+Wed 29 Apr 2026 03:41:29 INFO EPOCH=2	VALID_ENERGY=0.0015392323683871875
+Wed 29 Apr 2026 03:41:52 INFO EPOCH=2	TEST_ENERGY=0.0015256464604045206
+Wed 29 Apr 2026 03:41:52 INFO epoch 2 evaluating [time: 22.68s, valid_score: 0.041600]
+Wed 29 Apr 2026 03:41:52 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0084	0.0104	0.0034	0.0159
+10	0.0098	0.0137	0.0028	0.0263
+20	0.0108	0.0176	0.0022	0.0416
+50	0.0117	0.0234	0.0015	0.0703
+
+Wed 29 Apr 2026 03:41:52 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0096	0.0117	0.0038	0.0171
+10	0.0110	0.0152	0.0031	0.0278
+20	0.0121	0.0194	0.0025	0.0437
+50	0.0130	0.0253	0.0017	0.0729
+
+Wed 29 Apr 2026 03:42:03 INFO ██ LATTICE--Best validation results updated!!!
+Wed 29 Apr 2026 03:42:15 INFO EPOCH=3	TRAIN_ENERGY=0.0007555148623856949
+Wed 29 Apr 2026 03:42:15 INFO epoch 3 training [time: 12.51s, train loss: 72.0657]
+Wed 29 Apr 2026 03:42:37 INFO EPOCH=3	VALID_ENERGY=0.0015299196867314053
+Wed 29 Apr 2026 03:42:59 INFO EPOCH=3	TEST_ENERGY=0.0015394034921960462
+Wed 29 Apr 2026 03:42:59 INFO epoch 3 evaluating [time: 21.54s, valid_score: 0.036900]
+Wed 29 Apr 2026 03:42:59 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0066	0.0083	0.0028	0.0131
+10	0.0078	0.0115	0.0024	0.0230
+20	0.0088	0.0150	0.0020	0.0369
+50	0.0098	0.0217	0.0015	0.0706
+
+Wed 29 Apr 2026 03:42:59 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0069	0.0089	0.0032	0.0139
+10	0.0083	0.0124	0.0028	0.0247
+20	0.0093	0.0162	0.0022	0.0396
+50	0.0104	0.0231	0.0017	0.0738
+
+Wed 29 Apr 2026 03:43:12 INFO EPOCH=4	TRAIN_ENERGY=0.0007577243489206772
+Wed 29 Apr 2026 03:43:12 INFO epoch 4 training [time: 13.51s, train loss: 69.7226]
+Wed 29 Apr 2026 03:43:35 INFO EPOCH=4	VALID_ENERGY=0.0015252878128535867
+Wed 29 Apr 2026 03:43:55 INFO EPOCH=4	TEST_ENERGY=0.0015288072280776116
+Wed 29 Apr 2026 03:43:55 INFO epoch 4 evaluating [time: 22.55s, valid_score: 0.036900]
+Wed 29 Apr 2026 03:43:55 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0064	0.0080	0.0027	0.0127
+10	0.0075	0.0109	0.0023	0.0215
+20	0.0086	0.0148	0.0020	0.0369
+50	0.0095	0.0207	0.0014	0.0668
+
+Wed 29 Apr 2026 03:43:55 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0069	0.0089	0.0032	0.0141
+10	0.0080	0.0119	0.0026	0.0231
+20	0.0090	0.0156	0.0021	0.0374
+50	0.0100	0.0217	0.0015	0.0674
+
+Wed 29 Apr 2026 03:44:09 INFO EPOCH=5	TRAIN_ENERGY=0.0007464430330558438
+Wed 29 Apr 2026 03:44:09 INFO epoch 5 training [time: 13.03s, train loss: 67.8224]
+Wed 29 Apr 2026 03:44:30 INFO EPOCH=5	VALID_ENERGY=0.0015346228080770918
+Wed 29 Apr 2026 03:44:52 INFO EPOCH=5	TEST_ENERGY=0.001524587857757072
+Wed 29 Apr 2026 03:44:52 INFO epoch 5 evaluating [time: 21.82s, valid_score: 0.036400]
+Wed 29 Apr 2026 03:44:52 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0058	0.0075	0.0026	0.0125
+10	0.0071	0.0107	0.0024	0.0226
+20	0.0080	0.0143	0.0019	0.0364
+50	0.0090	0.0205	0.0014	0.0680
+
+Wed 29 Apr 2026 03:44:52 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0057	0.0075	0.0027	0.0120
+10	0.0071	0.0109	0.0025	0.0224
+20	0.0080	0.0145	0.0021	0.0365
+50	0.0090	0.0212	0.0016	0.0695
+
+Wed 29 Apr 2026 03:45:05 INFO EPOCH=6	TRAIN_ENERGY=0.0007517643390832824
+Wed 29 Apr 2026 03:45:05 INFO epoch 6 training [time: 13.09s, train loss: 66.2198]
+Wed 29 Apr 2026 03:45:27 INFO EPOCH=6	VALID_ENERGY=0.0015244342155210024
+Wed 29 Apr 2026 03:45:48 INFO EPOCH=6	TEST_ENERGY=0.0015261943366735003
+Wed 29 Apr 2026 03:45:48 INFO epoch 6 evaluating [time: 21.55s, valid_score: 0.036100]
+Wed 29 Apr 2026 03:45:48 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0056	0.0071	0.0024	0.0114
+10	0.0067	0.0099	0.0021	0.0200
+20	0.0078	0.0140	0.0019	0.0361
+50	0.0088	0.0205	0.0015	0.0689
+
+Wed 29 Apr 2026 03:45:48 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0051	0.0068	0.0026	0.0113
+10	0.0064	0.0099	0.0024	0.0207
+20	0.0075	0.0141	0.0021	0.0369
+50	0.0085	0.0210	0.0016	0.0709
+
+Wed 29 Apr 2026 03:46:01 INFO EPOCH=7	TRAIN_ENERGY=0.0007485467969483806
+Wed 29 Apr 2026 03:46:01 INFO epoch 7 training [time: 12.99s, train loss: 64.9568]
+Wed 29 Apr 2026 03:46:22 INFO EPOCH=7	VALID_ENERGY=0.0015343387118040514
+Wed 29 Apr 2026 03:46:44 INFO EPOCH=7	TEST_ENERGY=0.0015294203320660262
+Wed 29 Apr 2026 03:46:44 INFO epoch 7 evaluating [time: 20.78s, valid_score: 0.037500]
+Wed 29 Apr 2026 03:46:44 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0053	0.0067	0.0023	0.0108
+10	0.0064	0.0095	0.0021	0.0195
+20	0.0076	0.0141	0.0020	0.0375
+50	0.0087	0.0212	0.0016	0.0730
+
+Wed 29 Apr 2026 03:46:44 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0057	0.0073	0.0025	0.0112
+10	0.0070	0.0104	0.0023	0.0207
+20	0.0082	0.0151	0.0022	0.0390
+50	0.0093	0.0225	0.0017	0.0756
+
+Wed 29 Apr 2026 03:46:57 INFO EPOCH=8	TRAIN_ENERGY=0.000754880012114101
+Wed 29 Apr 2026 03:46:57 INFO epoch 8 training [time: 12.49s, train loss: 63.8069]
+Wed 29 Apr 2026 03:47:18 INFO EPOCH=8	VALID_ENERGY=0.0015248054131407123
+Wed 29 Apr 2026 03:47:40 INFO EPOCH=8	TEST_ENERGY=0.0015319631247486482
+Wed 29 Apr 2026 03:47:40 INFO epoch 8 evaluating [time: 21.51s, valid_score: 0.036300]
+Wed 29 Apr 2026 03:47:40 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0047	0.0061	0.0021	0.0100
+10	0.0059	0.0091	0.0021	0.0194
+20	0.0071	0.0134	0.0019	0.0363
+50	0.0082	0.0208	0.0016	0.0736
+
+Wed 29 Apr 2026 03:47:40 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0055	0.0072	0.0026	0.0114
+10	0.0068	0.0104	0.0024	0.0213
+20	0.0079	0.0148	0.0022	0.0382
+50	0.0091	0.0224	0.0017	0.0761
+
+Wed 29 Apr 2026 03:47:53 INFO EPOCH=9	TRAIN_ENERGY=0.0007480176994002295
+Wed 29 Apr 2026 03:47:53 INFO epoch 9 training [time: 12.99s, train loss: 63.0660]
+Wed 29 Apr 2026 03:48:14 INFO EPOCH=9	VALID_ENERGY=0.0015246184709331993
+Wed 29 Apr 2026 03:48:35 INFO EPOCH=9	TEST_ENERGY=0.0015235187633116857
+Wed 29 Apr 2026 03:48:35 INFO epoch 9 evaluating [time: 21.05s, valid_score: 0.038800]
+Wed 29 Apr 2026 03:48:35 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0052	0.0069	0.0025	0.0116
+10	0.0067	0.0105	0.0024	0.0227
+20	0.0078	0.0146	0.0021	0.0388
+50	0.0090	0.0223	0.0016	0.0777
+
+Wed 29 Apr 2026 03:48:35 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0056	0.0077	0.0030	0.0130
+10	0.0071	0.0114	0.0028	0.0244
+20	0.0082	0.0155	0.0023	0.0403
+50	0.0095	0.0236	0.0018	0.0804
+
+Wed 29 Apr 2026 03:48:49 INFO EPOCH=10	TRAIN_ENERGY=0.0007527826834899752
+Wed 29 Apr 2026 03:48:49 INFO epoch 10 training [time: 13.14s, train loss: 62.3315]
+Wed 29 Apr 2026 03:49:11 INFO EPOCH=10	VALID_ENERGY=0.0015345464718245242
+Wed 29 Apr 2026 03:49:32 INFO EPOCH=10	TEST_ENERGY=0.0015312729665811309
+Wed 29 Apr 2026 03:49:32 INFO epoch 10 evaluating [time: 22.40s, valid_score: 0.037700]
+Wed 29 Apr 2026 03:49:32 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0054	0.0069	0.0024	0.0114
+10	0.0068	0.0103	0.0023	0.0216
+20	0.0078	0.0143	0.0020	0.0377
+50	0.0090	0.0218	0.0016	0.0753
+
+Wed 29 Apr 2026 03:49:32 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0057	0.0074	0.0027	0.0120
+10	0.0071	0.0110	0.0026	0.0230
+20	0.0082	0.0154	0.0023	0.0402
+50	0.0094	0.0232	0.0018	0.0785
+
+Wed 29 Apr 2026 03:49:45 INFO EPOCH=11	TRAIN_ENERGY=0.0007544006898196655
+Wed 29 Apr 2026 03:49:45 INFO epoch 11 training [time: 12.04s, train loss: 61.6942]
+Wed 29 Apr 2026 03:50:06 INFO EPOCH=11	VALID_ENERGY=0.001525621074302272
+Wed 29 Apr 2026 03:50:28 INFO EPOCH=11	TEST_ENERGY=0.0015371724729915167
+Wed 29 Apr 2026 03:50:28 INFO epoch 11 evaluating [time: 21.55s, valid_score: 0.042200]
+Wed 29 Apr 2026 03:50:28 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0064	0.0081	0.0028	0.0131
+10	0.0079	0.0119	0.0026	0.0246
+20	0.0091	0.0163	0.0022	0.0422
+50	0.0103	0.0244	0.0018	0.0828
+
+Wed 29 Apr 2026 03:50:28 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0074	0.0093	0.0032	0.0141
+10	0.0091	0.0136	0.0031	0.0272
+20	0.0103	0.0182	0.0025	0.0451
+50	0.0116	0.0263	0.0019	0.0850
+
+Wed 29 Apr 2026 03:50:39 INFO ██ LATTICE--Best validation results updated!!!
+Wed 29 Apr 2026 03:50:51 INFO EPOCH=12	TRAIN_ENERGY=0.0007502693164547207
+Wed 29 Apr 2026 03:50:51 INFO epoch 12 training [time: 12.51s, train loss: 61.2644]
+Wed 29 Apr 2026 03:51:13 INFO EPOCH=12	VALID_ENERGY=0.0015300158331530275
+Wed 29 Apr 2026 03:51:34 INFO EPOCH=12	TEST_ENERGY=0.001532279561715318
+Wed 29 Apr 2026 03:51:34 INFO epoch 12 evaluating [time: 21.67s, valid_score: 0.041900]
+Wed 29 Apr 2026 03:51:34 INFO valid result: 
+
+@k	map	ndcg	precis	recall
+5	0.0075	0.0096	0.0033	0.0154
+10	0.0088	0.0129	0.0027	0.0257
+20	0.0099	0.0170	0.0022	0.0419
+50	0.0111	0.0246	0.0017	0.0802
+
+Wed 29 Apr 2026 03:51:34 INFO test result: 
+
+@k	map	ndcg	precis	recall
+5	0.0085	0.0108	0.0037	0.0165
+10	0.0099	0.0143	0.0031	0.0274
+20	0.0110	0.0185	0.0025	0.0438
+50	0.0123	0.0268	0.0019	0.0847
+
+Wed 29 Apr 2026 03:51:47 INFO EPOCH=13	TRAIN_ENERGY=0.0007468536302359766
+Wed 29 Apr 2026 03:51:47 INFO epoch 13 training [time: 12.48s, train loss: 60.6863]
+Wed 29 Apr 2026 03:52:08 INFO EPOCH=13	VALID_ENERGY=0.0015339241530884324

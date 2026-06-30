@@ -1,0 +1,127 @@
+Loading python/3.11.6--gcc--8.5.0
+  Loading requirement: bzip2/1.0.8-gp5wcz5 libmd/1.0.4-wja3f5q
+    libbsd/0.11.7-cgxjopl expat/2.5.0-bptl3xw ncurses/6.4-asx3jea
+    readline/8.2-nyw6mp6 gdbm/1.23-fs6otck libiconv/1.17-d7yvx2s
+    xz/5.4.1-hubmwr5 zlib-ng/2.1.4-6htiapk libxml2/2.10.3-5eeeokp
+    pigz/2.7-bopr5vp zstd/1.5.5-gawytfl tar/1.34-amqus5s gettext/0.22.3-2g7elif
+    libffi/3.4.4-6r7brdq libxcrypt/4.4.35-ss2rzin sqlite/3.43.2
+    util-linux-uuid/2.38.1-jkdi7kv
+Running in Python virtualenv: ../../../_env
++ srun -l bash /leonardo_work/IscrC_MMRecSys/luigi/green_mmrec/green_MMRec/src/run_in_container.sh
+0: 20 Jun 20:36    INFO ██Server: 	lrdn2233.leonardo.local
+0: 20 Jun 20:36    INFO ██Dir: 	/leonardo_work/IscrC_MMRecSys/luigi/green_mmrec/green_MMRec/src
+0: 
+0: 20 Jun 20:36    INFO 
+0: gpu_id=0
+0: use_gpu=True
+0: seed=[883]
+0: data_path=../data/
+0: inter_splitting_label=x_label
+0: filter_out_cod_start_users=True
+0: is_multimodal_model=True
+0: checkpoint_dir=saved
+0: save_recommended_topk=False
+0: recommend_topk=recommend_topk/
+0: embedding_size=64
+0: weight_decay=0.0
+0: req_training=True
+0: epochs=1000
+0: stopping_step=120
+0: train_batch_size=2048
+0: learner=adam
+0: learning_rate=0.001
+0: learning_rate_scheduler=[1.0, 50]
+0: eval_step=1
+0: training_neg_sample_num=1
+0: use_neg_sampling=True
+0: use_full_sampling=False
+0: NEG_PREFIX=neg__
+0: USER_ID_FIELD=userID
+0: ITEM_ID_FIELD=itemID
+0: TIME_FIELD=timestamp
+0: field_separator=	
+0: metrics=['Recall', 'NDCG', 'Precision', 'MAP']
+0: topk=[5, 10, 20, 50]
+0: valid_metric=Recall@20
+0: eval_batch_size=4096
+0: use_raw_features=False
+0: max_txt_len=32
+0: max_img_size=256
+0: vocab_size=30522
+0: type_vocab_size=2
+0: hidden_size=4
+0: pad_token_id=0
+0: max_position_embeddings=512
+0: layer_norm_eps=1e-12
+0: hidden_dropout_prob=0.1
+0: end2end=False
+0: hyper_parameters=['seed', 'n_ui_layers', 'reg_weight', 'fusion_mode', 'weighting', 'dropout']
+0: inter_file_name=movielens_1m.inter
+0: text_feature_file=all-MiniLM-L6-v2.npy
+0: vision_feature_file=vit_cls.npy
+0: user_graph_dict_file=user_graph_dict.npy
+0: feat_embed_dim=64
+0: n_ui_layers=[2]
+0: reg_weight=[0.1]
+0: fusion_mode=['mean', 'sum', 'prod', 'concat']
+0: weighting=['equal', 'alpha', 'normalized']
+0: dropout=[0.2, 0.5, 0.8]
+0: model=MMGCF
+0: dataset=movielens_1m
+0: valid_metric_bigger=True
+0: device=cuda
+0: 
+0: 
+0: 20 Jun 20:36    INFO movielens_1m
+0: The number of users: 6040
+0: Average actions of users: 156.07665562913908
+0: The number of items: 2980
+0: Average actions of items: 316.343288590604
+0: The number of inters: 942703
+0: The sparsity of the dataset: 94.76252833459264%
+0: 20 Jun 20:36    INFO 
+0: ====Training====
+0: movielens_1m
+0: The number of users: 6040
+0: Average actions of users: 124.46937086092716
+0: The number of items: 2980
+0: Average actions of items: 252.28020134228188
+0: The number of inters: 751795
+0: The sparsity of the dataset: 95.82317547446553%
+0: 20 Jun 20:36    INFO 
+0: ====Validation====
+0: movielens_1m
+0: The number of users: 6040
+0: Average actions of users: 15.163245033112583
+0: The number of items: 2886
+0: Average actions of items: 31.734580734580735
+0: The number of inters: 91586
+0: The sparsity of the dataset: 99.47459303419568%
+0: 20 Jun 20:36    INFO 
+0: ====Testing====
+0: movielens_1m
+0: The number of users: 6040
+0: Average actions of users: 16.444039735099338
+0: The number of items: 2877
+0: Average actions of items: 34.522766770941956
+0: The number of inters: 99322
+0: The sparsity of the dataset: 99.42843101372613%
+0: 20 Jun 20:36    INFO 
+0: 
+0: =================================
+0: 
+0: 
+0: 20 Jun 20:36    INFO =========1/36: Parameters:['seed', 'n_ui_layers', 'reg_weight', 'fusion_mode', 'weighting', 'dropout']=(883, 2, 0.1, 'mean', 'equal', 0.2)=======
+0: {'gpu_id': 0, 'use_gpu': True, 'seed': [883], 'data_path': '../data/', 'inter_splitting_label': 'x_label', 'filter_out_cod_start_users': True, 'is_multimodal_model': True, 'checkpoint_dir': 'saved', 'save_recommended_topk': False, 'recommend_topk': 'recommend_topk/', 'embedding_size': 64, 'weight_decay': 0.0, 'req_training': True, 'epochs': 1000, 'stopping_step': 120, 'train_batch_size': 2048, 'learner': 'adam', 'learning_rate': 0.001, 'learning_rate_scheduler': [1.0, 50], 'eval_step': 1, 'training_neg_sample_num': 1, 'use_neg_sampling': True, 'use_full_sampling': False, 'NEG_PREFIX': 'neg__', 'USER_ID_FIELD': 'userID', 'ITEM_ID_FIELD': 'itemID', 'TIME_FIELD': 'timestamp', 'field_separator': '\t', 'metrics': ['Recall', 'NDCG', 'Precision', 'MAP'], 'topk': [5, 10, 20, 50], 'valid_metric': 'Recall@20', 'eval_batch_size': 4096, 'use_raw_features': False, 'max_txt_len': 32, 'max_img_size': 256, 'vocab_size': 30522, 'type_vocab_size': 2, 'hidden_size': 4, 'pad_token_id': 0, 'max_position_embeddings': 512, 'layer_n
+0: orm_eps': 1e-12, 'hidden_dropout_prob': 0.1, 'end2end': False, 'hyper_parameters': ['seed', 'n_ui_layers', 'reg_weight', 'fusion_mode', 'weighting', 'dropout'], 'inter_file_name': 'movielens_1m.inter', 'text_feature_file': 'all-MiniLM-L6-v2.npy', 'vision_feature_file': 'vit_cls.npy', 'user_graph_dict_file': 'user_graph_dict.npy', 'feat_embed_dim': 64, 'n_ui_layers': [2], 'reg_weight': [0.1], 'fusion_mode': ['mean', 'sum', 'prod', 'concat'], 'weighting': ['equal', 'alpha', 'normalized'], 'dropout': [0.2, 0.5, 0.8], 'model': 'MMGCF', 'dataset': 'movielens_1m'}
+0: Traceback (most recent call last):
+0:   File "/leonardo_work/IscrC_MMRecSys/luigi/green_mmrec/green_MMRec/src/main.py", line 32, in <module>
+0:     quick_start(model=args.model, dataset=args.dataset,
+0:   File "/leonardo_work/IscrC_MMRecSys/luigi/green_mmrec/green_MMRec/src/utils/quick_start.py", line 228, in quick_start
+0:     model = get_model(config['model'])(config, train_data).to(config['device'])
+0:             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+0:   File "/leonardo_work/IscrC_MMRecSys/luigi/green_mmrec/green_MMRec/src/utils/utils.py", line 105, in get_model
+0:     model_name = model_name_dict[model_name.lower()]
+0:                  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+0: KeyError: 'mmgcf'
+srun: error: lrdn2233: task 0: Exited with exit code 1
